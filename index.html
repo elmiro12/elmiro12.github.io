@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <!-- Google Fonts: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Top App Bar -->
+    <header class="top-app-bar">
+        <div class="logo-container">
+            <img src="assets/img/logo.png" alt="Logo" class="app-logo">
+        </div>
+        <div class="actions">
+            <button id="theme-toggle" class="icon-button" aria-label="Toggle Dark Mode">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="content-container">
+
+        <!-- Hero Section -->
+        <section id="welcome" class="hero-section">
+            <div class="hero-content">
+                <h2 class="overline">Hello, My name is</h2>
+                <h1 class="headline-1">HENDRIK J.R SAMKAY</h1>
+                <p class="body-large">I'm a Civil Servant, Website Enthusiast, Programmer </p>
+                <a href="#contact" class="btn-filled ripple">
+                    <span class="material-icons-round">email</span>
+                    Contact Me
+                </a>
+            </div>
+            <div class="hero-visual">
+                <div class="abstract-shape"></div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-container">
+            <h2 class="headline-2">Selected Projects</h2>
+            <div class="grid-container">
+
+                <!-- Project 1: QR-Hadir -->
+                <div class="card project-card ripple">
+                    <div class="card-image">
+                        <img src="assets/img/projects/qr-hadir.jpg" alt="QR-Hadir App"
+                            onerror="this.src='assets/img/placeholder.png'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="headline-6">QR-Hadir App</h3>
+                        <p class="body-medium">Aplikasi Manajemen Event dan Absensi Berbasis QR-Code.</p>
+                        <div class="chips-container">
+                            <span class="chip">Laravel</span>
+                            <span class="chip">Tailwind CSS</span>
+                            <span class="chip">Alpine JS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Membership -->
+                <div class="card project-card ripple">
+                    <div class="card-image">
+                        <img src="assets/img/projects/membership-app.jpg" alt="Membership App"
+                            onerror="this.src='assets/img/placeholder.png'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="headline-6">Membership App</h3>
+                        <p class="body-medium">Aplikasi Manajemen Membership Komunitas.</p>
+                        <div class="chips-container">
+                            <span class="chip">Laravel</span>
+                            <span class="chip">Bootstrap 5</span>
+                            <span class="chip">Spatie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Website CMS -->
+                <div class="card project-card ripple">
+                    <div class="card-image">
+                        <img src="assets/img/projects/web-cms.jpg" alt="Website CMS"
+                            onerror="this.src='assets/img/placeholder.png'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="headline-6">Website CMS</h3>
+                        <p class="body-medium">Aplikasi Portal Berita Berbasis CMS Laravel.</p>
+                        <div class="chips-container">
+                            <span class="chip">Laravel</span>
+                            <span class="chip">Bootstrap 5</span>
+                            <span class="chip">CMS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: SIAP-KPU -->
+                <div class="card project-card ripple">
+                    <div class="card-image">
+                        <img src="assets/img/projects/siap-kpu.jpg" alt="SIAP-KPU"
+                            onerror="this.src='assets/img/placeholder.png'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="headline-6">SIAP-KPU</h3>
+                        <p class="body-medium">Sistem Informasi Absensi Pegawai & Manajemen PPID.</p>
+                        <div class="chips-container">
+                            <span class="chip">Laravel</span>
+                            <span class="chip">Flowbite</span>
+                            <span class="chip">Face API</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-container">
+            <h2 class="headline-2">Get in Touch</h2>
+            <div class="contact-card card">
+                <div class="contact-item">
+                    <span class="material-icons-round">email</span>
+                    <div>
+                        <h4 class="headline-6">Email</h4>
+                        <a href="mailto:erick.jr023@gmail.com" class="body-medium link">erick.jr023@gmail.com</a>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="contact-item">
+                    <span class="material-icons-round">chat</span>
+                    <div>
+                        <h4 class="headline-6">WhatsApp</h4>
+                        <a href="https://wa.me/6282239224007" target="_blank" class="body-medium link">
+                            +62 822 3922 4007
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-socials">
+            <a href="https://elmiro12.github.io/" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://facebook.com/erickpajaba" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://instagram.com/elmiro_23" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/6282239224007" target="_blank" aria-label="Instagram">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <p class="body-small">© 2026. Designed with Material 3.</p>
+    </footer>
+
+    <!-- Font Awesome (for Brand Icons) - Adding at end of body to ensure it loads -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
