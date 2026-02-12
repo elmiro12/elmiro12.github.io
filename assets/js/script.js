@@ -24,9 +24,11 @@ function updateTheme(theme) {
     if (theme === 'dark') {
         iconSpan.textContent = 'light_mode';
         logoImg.src = 'assets/img/logo-w.png';
+        document.body.style.backgroundImage = "url('assets/img/bg-black.png')";
     } else {
         iconSpan.textContent = 'dark_mode';
         logoImg.src = 'assets/img/logo-b.png';
+        document.body.style.backgroundImage = "url('assets/img/bg-white.png')";
     }
 }
 
