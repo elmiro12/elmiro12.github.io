@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail - erick.jr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/icon.png" type="image/png">
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Top App Bar -->
+    <header class="top-app-bar">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="assets/img/logo-b.png" alt="Logo" class="app-logo">
+            </a>
+        </div>
+        <div class="actions">
+            <button id="theme-toggle" class="icon-button" aria-label="Toggle Dark Mode">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="content-container">
+        <!-- Project Detail Section -->
+        <section class="section-container">
+            <a href="index.html" class="btn-text ripple back-link">
+                <span class="material-icons-round">arrow_back</span>
+                Kembali ke Utama
+            </a>
+
+            <div id="project-detail-content" class="markdown-body card">
+                <div class="loading-spinner">
+                    <span class="material-icons-round spinning">sync</span>
+                    Memuat detail aplikasi...
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-socials">
+            <a href="https://github.com/elmiro12" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://facebook.com/erickpajaba" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://instagram.com/elmiro_23" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/6282239224007" target="_blank" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <p class="body-small">© 2026. Designed with Material 3.</p>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="assets/js/projects-data.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const project = urlParams.get('project');
+            const contentDiv = document.getElementById('project-detail-content');
+
+            if (!project) {
+                contentDiv.innerHTML = '<p class="error-msg">Proyek tidak ditemukan.</p>';
+                return;
+            }
+
+            // Prioritaskan data dari projects-data.js untuk menghindari CORS saat akses lokal
+            if (typeof projectData !== 'undefined' && projectData[project]) {
+                contentDiv.innerHTML = marked.parse(projectData[project]);
+                return;
+            }
+
+            // Fallback ke fetch (untuk jaga-jaga jika dideploy di server)
+            const readmeMap = {
+                'qrhadir': 'apps/README_qrhadir.md',
+                'membership': 'apps/README_membership.md',
+                'webCMS': 'apps/README_webCMS.md',
+                'siap': 'apps/README_siap.md',
+                'sias-qr': 'apps/README_sias-qr.md'
+            };
+
+            const readmePath = readmeMap[project];
+
+            if (!readmePath) {
+                contentDiv.innerHTML = '<p class="error-msg">Detail untuk proyek ini belum tersedia.</p>';
+                return;
+            }
+
+            fetch(readmePath)
+                .then(response => {
+                    if (!response.ok) throw new Error('File tidak ditemukan');
+                    return response.text();
+                })
+                .then(text => {
+                    contentDiv.innerHTML = marked.parse(text);
+                })
+                .catch(err => {
+                    console.error('Fetch error:', err);
+                    contentDiv.innerHTML = '<p class="error-msg">Gagal memuat detail aplikasi secara dinamis. Pastikan file tersedia atau gunakan server lokal.</p>';
+                });
+        });
+    </script>
+</body>
+
+</html>
